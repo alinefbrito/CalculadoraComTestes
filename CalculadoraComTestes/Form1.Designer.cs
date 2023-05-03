@@ -31,8 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            button1 = new Button();
+            btn_Soma = new Button();
             label1 = new Label();
+            btn_Sub = new Button();
+            btn_Mult = new Button();
+            btnDiv = new Button();
             SuspendLayout();
             // 
             // textBox1
@@ -53,17 +56,17 @@
             textBox2.Size = new Size(100, 29);
             textBox2.TabIndex = 1;
             // 
-            // button1
+            // btn_Soma
             // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(223, 92);
-            button1.MinimumSize = new Size(30, 30);
-            button1.Name = "button1";
-            button1.Size = new Size(30, 30);
-            button1.TabIndex = 2;
-            button1.Text = "+";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btn_Soma.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Soma.Location = new Point(221, 78);
+            btn_Soma.MinimumSize = new Size(30, 30);
+            btn_Soma.Name = "btn_Soma";
+            btn_Soma.Size = new Size(30, 30);
+            btn_Soma.TabIndex = 2;
+            btn_Soma.Text = "+";
+            btn_Soma.UseVisualStyleBackColor = true;
+            btn_Soma.Click += btnSoma_Click;
             // 
             // label1
             // 
@@ -77,12 +80,48 @@
             label1.TabIndex = 3;
             label1.Text = "Resultado";
             // 
+            // btn_Sub
+            // 
+            btn_Sub.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Sub.Location = new Point(257, 78);
+            btn_Sub.Name = "btn_Sub";
+            btn_Sub.Size = new Size(30, 30);
+            btn_Sub.TabIndex = 4;
+            btn_Sub.Text = "-";
+            btn_Sub.UseVisualStyleBackColor = true;
+            btn_Sub.Click += btnSub_Click;
+            // 
+            // btn_Mult
+            // 
+            btn_Mult.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Mult.Location = new Point(221, 117);
+            btn_Mult.Name = "btn_Mult";
+            btn_Mult.Size = new Size(30, 30);
+            btn_Mult.TabIndex = 5;
+            btn_Mult.Text = "*";
+            btn_Mult.UseVisualStyleBackColor = true;
+            btn_Mult.Click += btnMult_Click;
+            // 
+            // btnDiv
+            // 
+            btnDiv.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDiv.Location = new Point(257, 117);
+            btnDiv.Name = "btnDiv";
+            btnDiv.Size = new Size(30, 30);
+            btnDiv.TabIndex = 6;
+            btnDiv.Text = "/";
+            btnDiv.UseVisualStyleBackColor = true;
+            btnDiv.Click += btnDiv_Click;
+            // 
             // Form1
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(762, 461);
+            Controls.Add(btnDiv);
+            Controls.Add(btn_Mult);
+            Controls.Add(btn_Sub);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(btn_Soma);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -97,7 +136,10 @@
 
         private TextBox textBox1;
         private TextBox textBox2;
-        private Button button1;
+        private Button btn_Soma;
         private Label label1;
+        private Button btn_Sub;
+        private Button btn_Mult;
+        private Button btnDiv;
     }
 }

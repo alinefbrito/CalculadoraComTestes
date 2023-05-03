@@ -1,18 +1,23 @@
 namespace CalculadoraComTestes
-{    public partial class Form1 : Form
+{
+    public partial class Form1 : Form
     {
-        Double n1, n2, resultado ;
+        Double n1, n2, resultado;
+        const int Soma = 1;
+        const int Sub = 2;
+        const int Mult = 3;
+        const int Div = 4;
         public Form1()
         {
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSoma_Click(object sender, EventArgs e)
         {
             string v1 = textBox1.Text;
             string v2 = textBox2.Text;
             if (ValidaNro(v1) && ValidaNro(v2))
             {
-               resultado = Soma(v1,v2);
+                Calcula(Soma, v1, v2);
                 label1.Text = resultado.ToString();
             }
             else
@@ -24,7 +29,7 @@ namespace CalculadoraComTestes
         {
             Double valor = 0;
             Boolean isNumber = Double.TryParse(vlr, out valor);
-            if (String.IsNullOrEmpty(vlr) 
+            if (String.IsNullOrEmpty(vlr)
                 || String.IsNullOrWhiteSpace(vlr)
                 || !isNumber)
             {
@@ -32,11 +37,73 @@ namespace CalculadoraComTestes
             }
             return true;
         }
-        public Double Soma (string str1,  string str2)
+        public Double Calcula(int op, string str1, string str2)
         {
             n1 = Double.Parse(str1);
             n2 = Double.Parse(str2);
-            return  n1+ n2;
+            switch (op)
+            {
+                case 1:
+                    resultado = n1 + n2;
+                    break;
+                case 2:
+                    resultado = n1 - n2;
+                    break;
+                case 3:
+                    resultado = n1 * n2;
+                    break;
+                case 4:
+                    resultado = n1 / n2;
+                    break;
+            }
+            return resultado;
+        }
+
+        private void btnSub_Click(object sender, EventArgs e)
+        {
+            string v1 = textBox1.Text;
+            string v2 = textBox2.Text;
+            if (ValidaNro(v1) && ValidaNro(v2))
+            {
+                Calcula(Sub, v1, v2);
+                label1.Text = resultado.ToString();
+            }
+            else
+            {
+                label1.Text = "Digite valores Válidos";
+            }
+        }
+
+        private void btnMult_Click(object sender, EventArgs e)
+        {
+            string v1 = textBox1.Text;
+            string v2 = textBox2.Text;
+            if (ValidaNro(v1) && ValidaNro(v2))
+            {
+                Calcula(Mult, v1, v2);
+                label1.Text = resultado.ToString();
+            }
+            else
+            {
+                label1.Text = "Digite valores Válidos";
+            }
+        }
+
+
+        private void btnDiv_Click(object sender, EventArgs e)
+        {
+            string v1 = textBox1.Text;
+            string v2 = textBox2.Text;
+            if (ValidaNro(v1) && ValidaNro(v2))
+            {
+                Calcula(Div, v1, v2);
+                label1.Text = resultado.ToString();
+            }
+            else
+            {
+                label1.Text = "Digite valores Válidos";
+            }
+
         }
     }
 }
