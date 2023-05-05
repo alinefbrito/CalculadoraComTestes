@@ -29,32 +29,32 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            nro1 = new TextBox();
+            nro2 = new TextBox();
             btn_Soma = new Button();
-            label1 = new Label();
+            lblResultado = new Label();
             btn_Sub = new Button();
             btn_Mult = new Button();
-            btnDiv = new Button();
+            btn_Div = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // nro1
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(82, 74);
-            textBox1.MinimumSize = new Size(50, 30);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 29);
-            textBox1.TabIndex = 0;
+            nro1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            nro1.Location = new Point(82, 74);
+            nro1.MinimumSize = new Size(50, 30);
+            nro1.Name = "nro1";
+            nro1.Size = new Size(100, 29);
+            nro1.TabIndex = 0;
             // 
-            // textBox2
+            // nro2
             // 
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(82, 118);
-            textBox2.MinimumSize = new Size(50, 30);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 29);
-            textBox2.TabIndex = 1;
+            nro2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            nro2.Location = new Point(82, 118);
+            nro2.MinimumSize = new Size(50, 30);
+            nro2.Name = "nro2";
+            nro2.Size = new Size(100, 29);
+            nro2.TabIndex = 1;
             // 
             // btn_Soma
             // 
@@ -68,17 +68,17 @@
             btn_Soma.UseVisualStyleBackColor = true;
             btn_Soma.Click += btnSoma_Click;
             // 
-            // label1
+            // lblResultado
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.FromArgb(192, 0, 192);
-            label1.Location = new Point(82, 170);
-            label1.MinimumSize = new Size(50, 30);
-            label1.Name = "label1";
-            label1.Size = new Size(86, 30);
-            label1.TabIndex = 3;
-            label1.Text = "Resultado";
+            lblResultado.AutoSize = true;
+            lblResultado.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblResultado.ForeColor = Color.FromArgb(192, 0, 192);
+            lblResultado.Location = new Point(82, 170);
+            lblResultado.MinimumSize = new Size(50, 30);
+            lblResultado.Name = "lblResultado";
+            lblResultado.Size = new Size(86, 30);
+            lblResultado.TabIndex = 3;
+            lblResultado.Text = "Resultado";
             // 
             // btn_Sub
             // 
@@ -102,28 +102,28 @@
             btn_Mult.UseVisualStyleBackColor = true;
             btn_Mult.Click += btnMult_Click;
             // 
-            // btnDiv
+            // btn_Div
             // 
-            btnDiv.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDiv.Location = new Point(257, 117);
-            btnDiv.Name = "btnDiv";
-            btnDiv.Size = new Size(30, 30);
-            btnDiv.TabIndex = 6;
-            btnDiv.Text = "/";
-            btnDiv.UseVisualStyleBackColor = true;
-            btnDiv.Click += btnDiv_Click;
+            btn_Div.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Div.Location = new Point(257, 117);
+            btn_Div.Name = "btn_Div";
+            btn_Div.Size = new Size(30, 30);
+            btn_Div.TabIndex = 6;
+            btn_Div.Text = "/";
+            btn_Div.UseVisualStyleBackColor = true;
+            btn_Div.Click += btnDiv_Click;
             // 
             // Form1
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(762, 461);
-            Controls.Add(btnDiv);
+            Controls.Add(btn_Div);
             Controls.Add(btn_Mult);
             Controls.Add(btn_Sub);
-            Controls.Add(label1);
+            Controls.Add(lblResultado);
             Controls.Add(btn_Soma);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(nro2);
+            Controls.Add(nro1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
@@ -134,12 +134,12 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox nro1;
+        private TextBox nro2;
         private Button btn_Soma;
-        private Label label1;
+        private Label lblResultado;
         private Button btn_Sub;
         private Button btn_Mult;
-        private Button btnDiv;
+        private Button btn_Div;
     }
 }

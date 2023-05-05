@@ -1,109 +1,89 @@
+using System.Linq.Expressions;
+
 namespace CalculadoraComTestes
 {
     public partial class Form1 : Form
     {
         Double n1, n2, resultado;
-        const int Soma = 1;
-        const int Sub = 2;
-        const int Mult = 3;
-        const int Div = 4;
+        const int SOMA = 1;
+        const int SUB = 2;
+        const int MULT = 3;
+        const int DIV = 4;
         public Form1()
         {
             InitializeComponent();
         }
         private void btnSoma_Click(object sender, EventArgs e)
         {
-            string v1 = textBox1.Text;
-            string v2 = textBox2.Text;
-            if (ValidaNro(v1) && ValidaNro(v2))
+            if (ValidaValor(nro1.Text) && ValidaValor(nro2.Text))
             {
-                Calcula(Soma, v1, v2);
-                label1.Text = resultado.ToString();
-            }
-            else
-            {
-                label1.Text = "Digite valores Válidos";
+                Calcula(SOMA);
             }
         }
-        public Boolean ValidaNro(String vlr)
+private Boolean ValidaValor(String vlr)
         {
-            Double valor = 0;
-            Boolean isNumber = Double.TryParse(vlr, out valor);
-            if (String.IsNullOrEmpty(vlr)
+            Double x;
+            if(String.IsNullOrEmpty(vlr) 
                 || String.IsNullOrWhiteSpace(vlr)
-                || !isNumber)
+                || Double.TryParse(vlr,out x)==false)
             {
+                Mensagem("Verifique os valores");
                 return false;
             }
-            return true;
-        }
-        public Double Calcula(int op, string str1, string str2)
-        {
-            n1 = Double.Parse(str1);
-            n2 = Double.Parse(str2);
-            switch (op)
+            else
             {
-                case 1:
-                    resultado = n1 + n2;
-                    break;
-                case 2:
-                    resultado = n1 - n2;
-                    break;
-                case 3:
-                    resultado = n1 * n2;
-                    break;
-                case 4:
-                    resultado = n1 / n2;
-                    break;
+                return true;
             }
-            return resultado;
         }
-
         private void btnSub_Click(object sender, EventArgs e)
         {
-            string v1 = textBox1.Text;
-            string v2 = textBox2.Text;
-            if (ValidaNro(v1) && ValidaNro(v2))
+            if (ValidaValor(nro1.Text) && ValidaValor(nro2.Text))
             {
-                Calcula(Sub, v1, v2);
-                label1.Text = resultado.ToString();
-            }
-            else
-            {
-                label1.Text = "Digite valores Válidos";
+                Calcula(SUB);
             }
         }
-
         private void btnMult_Click(object sender, EventArgs e)
         {
-            string v1 = textBox1.Text;
-            string v2 = textBox2.Text;
-            if (ValidaNro(v1) && ValidaNro(v2))
+            if (ValidaValor(nro1.Text) && ValidaValor(nro2.Text))
             {
-                Calcula(Mult, v1, v2);
-                label1.Text = resultado.ToString();
+               Calcula(MULT);
             }
-            else
+        }
+        private void btnDiv_Click(object sender, EventArgs e)
+        {
+            if (ValidaValor(nro1.Text) && ValidaValor(nro2.Text))
             {
-                label1.Text = "Digite valores Válidos";
+                Calcula(DIV);
             }
         }
 
-
-        private void btnDiv_Click(object sender, EventArgs e)
+        private void Calcula(int ope)
         {
-            string v1 = textBox1.Text;
-            string v2 = textBox2.Text;
-            if (ValidaNro(v1) && ValidaNro(v2))
+            n1 = Double.Parse(nro1.Text);
+            n2 = Double.Parse(nro2.Text);
+            switch(ope)
             {
-                Calcula(Div, v1, v2);
-                label1.Text = resultado.ToString();
+                case 1:
+                    resultado = n1+n2;
+                    break;
+                case 2:
+                    resultado = n1-n2;
+                    break;
+                case 3:
+                    resultado = n1*n2;
+                    break;  
+                case 4:
+                    if (n2 == 0)
+                        Mensagem("Não existe Divisão por Zero");
+                    else
+                        resultado = n1 / n2;
+                    break;
             }
-            else
-            {
-                label1.Text = "Digite valores Válidos";
-            }
-
+            Mensagem(resultado.ToString()); 
+        }
+        private void Mensagem(String txt)
+        {
+            lblResultado.Text = txt;
         }
     }
 }
